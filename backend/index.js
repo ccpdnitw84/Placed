@@ -39,7 +39,7 @@ app.post('/register', async (req, res) => {
     newUser.save()
         .then(() => {
             console.log("User registered successfully")
-            return res.status(200).json({ user });
+            return res.status(200).json({ user: newUser });
         })
         .catch(err => {
             console.error(err);
