@@ -22,7 +22,7 @@ export default function Login() {
         e.preventDefault();
         axios.post("http://localhost:5000/login", formData)
             .then(response => {
-                console.log("Response data: ", response.data);
+                console.log(response.data);
                 setUser(response.data.user);    
                 setLoggedIn(true);
             })
