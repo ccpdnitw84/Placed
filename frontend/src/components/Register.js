@@ -22,7 +22,6 @@ export default function Register() {
         e.preventDefault();
         axios.post("http://localhost:5000/register", formData)
             .then(response => {
-                console.log(response.data);
                 setUser(response.data.user);
                 setRegistered(true);
             })

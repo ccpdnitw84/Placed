@@ -5,11 +5,8 @@ import { UserContext } from "../UserContext";
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        username: '',
         email: '',
-        mobile: '',
         password: '',
-        role: ''
     });
     const [loggedIn, setLoggedIn] = useState(false);
     const {setUser} = useContext(UserContext);
@@ -20,9 +17,8 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/login", formData)
+        axios.post("http://localhost:5000/login", formData, {withCredentials: true})
             .then(response => {
-                console.log(response.data);
                 setUser(response.data.user);    
                 setLoggedIn(true);
             })

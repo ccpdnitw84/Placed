@@ -2,6 +2,8 @@ import React from "react";
 
 export default function HeadTNP() {
     return (
-        <div>Head of TNP</div>
+        <div>
+            Head of TNP
+        </div>
     );
 }
