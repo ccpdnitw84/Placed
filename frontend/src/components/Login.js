@@ -59,7 +59,7 @@ export default function Login() {
                         className="w-full mb-4 p-2 border border-gray-300 rounded"
                         required
                     />
-                    <button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-xl">
+                    <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-xl">
                         Login
                     </button>
                 </form>
