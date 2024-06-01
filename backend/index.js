@@ -86,29 +86,6 @@ app.get('/dashboard', authenticateToken, (req, res) => {
     res.status(200).json({ user: req.user });
 });
 
-// app.get('/current-user', (req, res) => {
-//     const token = req.cookies.token;
-//     if (!token) {
-//         return res.status(401).json({ message: 'No token provided' });
-//     }
-//     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-//         if (err) {
-//             return res.status(401).json({ message: 'Invalid token' });
-//         }
-//         User.findById(decoded.id)
-//             .then(user => {
-//                 if (!user) {
-//                     return res.status(404).json({ message: 'User not found' });
-//                 }
-//                 return res.status(200).json({ user });
-//             })
-//             .catch(err => {
-//                 console.error(err);
-//                 return res.status(500).send("Error fetching user");
-//             });
-//     });
-// });
-
 app.get('/current-user', (req, res) => {
     const token = req.cookies.token;
     if (!token) {
