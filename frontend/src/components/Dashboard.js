@@ -8,7 +8,7 @@ import { UserContext } from "../UserContext";
 import axios from "axios";
 
 export default function Dashboard() {
-  const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

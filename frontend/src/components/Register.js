@@ -12,6 +12,7 @@ export default function Register() {
         role: ''
     });
     const [registered, setRegistered] = useState(false);
+    const [redirectToLogin, setRedirectToLogin] = useState(false);
     const {setUser} = useContext(UserContext);
 
     const handleChange = (e) => {
@@ -20,18 +21,29 @@ export default function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/register", formData)
+        axios.post("http://localhost:5000/register", formData, {withCredentials: true})
             .then(response => {
-                setUser(response.data.user);
-                setRegistered(true);
+                if (response.status === 200) {
+                    setUser(response.data.user);
+                    setRegistered(true);
+                }
             })
             .catch(err => {
-                console.error(err);
+                if (err.response && err.response.status === 400 && err.response.data.message === 'User already has an account') {
+                    alert("User already has an account. Redirecting to login page.");
+                    setRedirectToLogin(true);
+                } else {
+                    console.error("Error:", err.response ? err.response.data : err.message);
+                }
             });
     };
 
     if(registered) {
         return <Navigate to='/dashboard' />;
+    }
+
+    if(redirectToLogin){
+        return <Navigate to='/login' />;
     }
 
     return (

@@ -49,16 +49,28 @@ const authenticateToken = (req, res, next) => {
 
 app.post('/register', async (req, res) => {
     const {username, email, mobile, password, role} = req.body;
-    const newUser = new User({username, email, mobile, password, role});
-
-    newUser.save()
-        .then(() => {
-            console.log("User registered successfully")
-            return res.status(200).json({ user: newUser });
+    User.findOne({ email })
+        .then(existingUser => {
+            if (existingUser) {
+                return res.status(400).json({ message: 'User already has an account' });
+            } else {
+                const newUser = new User({ username, email, mobile, password, role });
+                newUser.save()
+                    .then(() => {
+                        console.log("User registered successfully");
+                        const token = generateToken(newUser);
+                        res.cookie('token', token, { httpOnly: true });
+                        return res.status(200).json({ user: newUser });
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        return res.status(500).send("Error registering user");
+                    });
+            }
         })
         .catch(err => {
             console.error(err);
-            return res.status(500).send("Error registering user");
+            return res.status(500).send("Error checking existing user");
         });
 });
 
@@ -80,10 +92,6 @@ app.post('/login', async (req, res) => {
             console.error(err);
             res.status(500).send("Error logging in");
         });
-});
-
-app.get('/dashboard', authenticateToken, (req, res) => {
-    res.status(200).json({ user: req.user });
 });
 
 app.get('/current-user', (req, res) => {
