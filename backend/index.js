@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcrypt");
 const User = require("./models/User");
+const Company = require("./models/Company");
 
 dotenv.config();
 
@@ -118,4 +119,9 @@ app.get("/current-user", (req, res) => {
         return res.status(500).send("Error fetching user");
       });
   });
+});
+
+app.get("/dashboard", async (req, res) => {
+  const companyData = await Company.find();
+  return res.status(201).json(companyData);
 });

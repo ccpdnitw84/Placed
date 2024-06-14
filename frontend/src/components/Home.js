@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
     return (
-        <div className='flex flex-col justify-center items-center h-screen bg-gray-100'>
-            <div className='bg-gray-200 rounded-full mb-6'>
-                <svg fill="#000000" width="64px" height="64px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <div className='flex flex-col justify-center items-center h-screen'>
+            <div className='bg-dark bg-opacity-70 rounded-full mb-6'>
+                <svg fill="#FFFFFF" width="64px" height="64px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                     <g id="Outline">
                         <g data-name="Outline" id="Outline-2">
                             <path d="M41,29a1,1,0,0,1-1,1H37.3a7,7,0,0,1-6.92,6H27l4.8,6.4a1,1,0,0,1-1.6,1.2l-5.91-7.89A1.013,1.013,0,0,1,25,34h5.38a5.009,5.009,0,0,0,4.9-4H25a1,1,0,0,1,0-2H35.28a5.009,5.009,0,0,0-4.9-4H25a1,1,0,0,1,0-2H40a1,1,0,0,1,0,2H35.26a6.922,6.922,0,0,1,2.04,4H40A1,1,0,0,1,41,29Z"/>
@@ -16,8 +16,8 @@ export default function Home() {
                     </g>
                 </svg>
             </div>
-            <h1 className='text-4xl font-bold mb-4'>Welcome to Placed</h1>
-            <p className='text-lg text-gray-600 mb-8'>Your one-stop destination for placements!</p>
+            <h1 className='text-white text-4xl font-bold mb-4'>Welcome to Placed</h1>
+            <p className='text-lg text-gray-400 mb-8'>Your one-stop destination for placements!</p>
             <div className='flex space-x-4'>
                 <Link to="/register" className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl'>
                     Register

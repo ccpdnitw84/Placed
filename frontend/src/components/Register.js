@@ -47,9 +47,9 @@ export default function Register() {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="flex flex-col items-center bg-white p-8 rounded shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-4">Register</h2>
+        <div className="flex justify-center items-center h-screen">
+            <div className="flex flex-col items-center bg-dark bg-opacity-70 backdrop-saturate-200 p-8 rounded shadow-md w-96">
+                <h2 className="text-white text-2xl font-bold mb-4">Register</h2>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -57,7 +57,7 @@ export default function Register() {
                         placeholder="Atharv Kulkarni"
                         value={formData.username}
                         onChange={handleChange}
-                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                        className="text-gray-300 placeholder-gray-700 bg-dark bg-opacity-10 w-full mb-4 p-2 border border-gray-600 rounded"
                         required
                     />
                     <input
@@ -66,7 +66,7 @@ export default function Register() {
                         placeholder="atharvkulkarni429@gmail.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                        className="text-gray-300 placeholder-gray-700 bg-dark bg-opacity-10 w-full mb-4 p-2 border border-gray-600 rounded"
                         required
                     />
                     <input
@@ -75,7 +75,7 @@ export default function Register() {
                         placeholder="8446833683"
                         value={formData.mobile}
                         onChange={handleChange}
-                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                        className="text-gray-300 placeholder-gray-700 bg-dark bg-opacity-10 w-full mb-4 p-2 border border-gray-600 rounded"
                         required
                     />
                     <input
@@ -84,14 +84,14 @@ export default function Register() {
                         placeholder="********"
                         value={formData.password}
                         onChange={handleChange}
-                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                        className="text-gray-300 placeholder-gray-700 bg-dark bg-opacity-10 w-full mb-4 p-2 border border-gray-600 rounded"
                         required
                     />
                     <select
                         name="role"
                         value={formData.role}
                         onChange={handleChange}
-                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                        className="text-gray-300 placeholder-gray-700 bg-dark bg-opacity-10 w-full mb-4 p-2 border border-gray-600 rounded"
                         required
                     >
                         <option value="">Select Role</option>
